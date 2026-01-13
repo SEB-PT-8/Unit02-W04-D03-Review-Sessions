@@ -4,6 +4,7 @@ const app = express() // creates a express application
 const dotenv = require("dotenv").config() //this allows me to use my .env values in this file
 const mongoose = require("mongoose")
 const morgan = require('morgan')
+const hotelRoutes = require('./controllers/hotels.routes')
 
 app.use(express.static('public')) // my app will serve all static files from public folder
 app.use(express.urlencoded({ extended: false }));
@@ -47,6 +48,7 @@ connectToDB() // connect to database
 
 
 // Routes go here
+app.use('/hotels',hotelRoutes)
 
 
 
