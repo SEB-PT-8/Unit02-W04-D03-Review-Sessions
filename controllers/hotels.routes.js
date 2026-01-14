@@ -28,4 +28,11 @@ router.get('/:id', async(req,res)=>{
     res.render('hotel-details.ejs',{hotel: foundHotel})
 })
 
+
+// Deleting a hotel
+router.post('/delete/:id',async(req,res)=>{
+    const deletedHotel = await Hotel.findByIdAndDelete(req.params.id)
+    res.redirect('/hotels')
+})
+
 module.exports = router
