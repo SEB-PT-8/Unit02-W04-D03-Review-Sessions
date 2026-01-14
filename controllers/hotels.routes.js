@@ -4,11 +4,11 @@ const Hotel = require('../models/Hotel')
 
 router.get('/',async (req,res)=>{
     const allHotels = await Hotel.find() // gets all the hotels
-    res.render('all-hotels.ejs',{allHotels:allHotels}) // do not add /all-hotels.ejs
+    res.render('hotels/all-hotels.ejs',{allHotels:allHotels}) // do not add /all-hotels.ejs
 })
 
 router.get('/new',(req,res)=>{
-    res.render('create-hotel.ejs')
+    res.render('hotels/create-hotel.ejs')
 })
 
 router.post('/',async (req,res)=>{
@@ -25,7 +25,7 @@ router.post('/',async (req,res)=>{
 
 router.get('/:id', async(req,res)=>{
     const foundHotel = await Hotel.findById(req.params.id)
-    res.render('hotel-details.ejs',{hotel: foundHotel})
+    res.render('hotels/hotel-details.ejs',{hotel: foundHotel})
 })
 
 

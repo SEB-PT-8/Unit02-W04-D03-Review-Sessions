@@ -7,7 +7,7 @@ const router = require('express').Router()
 
 router.get('/new', async(req,res)=>{
     const allHotels = await Hotel.find()
-    res.render('create-room.ejs',{allHotels:allHotels})
+    res.render('rooms/create-room.ejs',{allHotels:allHotels})
 })
 
 router.post('/', async(req,res)=>{
@@ -19,7 +19,7 @@ router.post('/', async(req,res)=>{
 router.get('/',async(req,res)=>{
     const allRooms = await Room.find().populate('hotel')
     console.log(allRooms)
-    res.render('all-rooms.ejs')
+    res.render('rooms/all-rooms.ejs')
 })
 
 module.exports = router
