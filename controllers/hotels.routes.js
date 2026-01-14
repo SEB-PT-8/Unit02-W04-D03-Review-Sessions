@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const Hotel = require('../models/Hotel')
-router.get('/',(req,res)=>{
-    res.render('all-hotels.ejs') // do not add /all-hotels.ejs
+router.get('/',async (req,res)=>{
+    const allHotels = await Hotel.find() // gets all the hotels
+    res.render('all-hotels.ejs',{allHotels:allHotels}) // do not add /all-hotels.ejs
 })
 
 router.get('/new',(req,res)=>{
