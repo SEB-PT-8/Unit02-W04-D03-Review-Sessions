@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create new Room</h1>
+
+    <form action="/rooms" method="post">
+        <label for="roomNumber">Room Number</label>
+        <input id="roomNumber" name="roomNumber" type="text">
+
+        <label for="space">space: </label>
+        <input name="space" id="space" type="text">
+
+        <select name="hotel" id="">
+            <% allHotels.forEach((oneHotel)=>{ %>
+                <!-- value should always be the _id -->
+                <option value="<%= oneHotel._id %>"><%= oneHotel.hotelName %></option>
+            <% }) %>
+  
+        </select>
+
+        <button>Create Room</button>
+
+    </form>
+    
+</body>
+</html>
