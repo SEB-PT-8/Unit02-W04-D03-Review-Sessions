@@ -16,4 +16,10 @@ router.post('/', async(req,res)=>{
 })
 
 
+router.get('/',async(req,res)=>{
+    const allRooms = await Room.find().populate('hotel')
+    console.log(allRooms)
+    res.render('all-rooms.ejs')
+})
+
 module.exports = router
