@@ -11,7 +11,7 @@
 
     <% allHotels.forEach((oneHotel)=>{ %>
         <p><%= oneHotel.hotelName %></p>
-        
+        <a href="/hotels/<%= oneHotel._id %>">See Details</a>
     <% }) %>
 </body>
 </html>

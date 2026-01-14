@@ -21,4 +21,11 @@ router.post('/',async (req,res)=>{
     }
   
 })
+
+
+router.get('/:id', async(req,res)=>{
+    const foundHotel = await Hotel.findById(req.params.id)
+    res.render('hotel-details.ejs',{hotel: foundHotel})
+})
+
 module.exports = router
